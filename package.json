@@ -5,23 +5,27 @@
   "main": "index.js",
   "scripts": {
     "dev": "pnpm --filter @melon-element/play dev",
-    "story":"pnpm --filter @melon-element/play storybook",
+    "story": "pnpm --filter @melon-element/play storybook",
     "docs:dev": "pnpm --filter @melon-element/docs dev",
     "docs:build": "pnpm --filter @melon-element/docs build",
-    "test": "pnpm --filter @melon-element/components test"
+    "test": "pnpm --filter @melon-element/components test",
+    "build": "run-s build-hooks build-components"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/lodash-es": "^4.17.12",
-    "@types/node": "^20.12.10",
-    "@vitejs/plugin-vue": "^5.0.4",
-    "@vitejs/plugin-vue-jsx": "^3.1.0",
-    "@vue/tsconfig": "^0.5.1",
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/vue-fontawesome": "^3.0.6",
+    "@types/lodash-es": "^4.17.12",
+    "@types/node": "^20.12.10",
+    "@types/shelljs": "^0.8.15",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "@vitejs/plugin-vue-jsx": "^3.1.0",
+    "@vue/tsconfig": "^0.5.1",
+    "move-file-cli": "^3.0.0",
+    "npm-run-all": "^4.1.5",
     "postcss-color-mix": "^1.1.0",
     "postcss-each": "^1.1.0",
     "postcss-each-variables": "^0.3.0",
@@ -29,15 +33,23 @@
     "postcss-nested": "^6.0.1",
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
+    "vite-plugin-dts": "^3.9.1",
     "vitest": "^1.6.0",
-    "vue-tsc": "^1.8.27"
+    "vue-tsc": "^1.8.27",
+    "@vitest/coverage-v8": "^1.4.0",
+    "@vue/test-utils": "^2.4.5",
+    "jsdom": "^24.0.0",
+    "shelljs": "^0.8.5"
   },
   "dependencies": {
-    "vue": "^3.4.19",
-    "lodash-es": "^4.17.21",
-    "melon-element": "workspace:*",
+    "@melon-element/components": "workspace:*",
     "@melon-element/hooks": "workspace:*",
     "@melon-element/theme": "workspace:*",
-    "@melon-element/utils": "workspace:*"
+    "@melon-element/utils": "workspace:*",
+    "lodash-es": "^4.17.21",
+    "melon-element": "workspace:*",
+    "vue": "^3.4.19",
+    "@popperjs/core": "^2.11.8",
+    "async-validator": "^4.2.5"
   }
 }

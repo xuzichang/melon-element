@@ -2,7 +2,8 @@ import type {Meta,StoryObj,ArgTypes} from '@storybook/vue3'
 import {fn, within, userEvent, expect} from "@storybook/test"
 
 import { MelonButton,MelonButtonGroup } from 'melon-element'
-
+import "melon-element/dist/theme/Button.css";
+import "melon-element/dist/index.css";
 type Story = StoryObj<typeof MelonButton> &{argTypes?:ArgTypes}
 
 const meta: Meta<typeof MelonButton> = {

@@ -1,0 +1,60 @@
+.melon-collapse {
+  --melon-collapse-border-color: var(--melon-border-color-light);
+  --melon-collapse-header-height: 48px;
+  --melon-collapse-header-bg-color: var(--melon-fill-color-blank);
+  --melon-collapse-header-text-color: var(--melon-text-color-primary);
+  --melon-collapse-header-font-size: 13px;
+  --melon-collapse-content-bg-color: var(--melon-fill-color-blank);
+  --melon-collapse-content-font-size: 13px;
+  --melon-collapse-content-text-color: var(--melon-text-color-primary);
+  --melon-collapse-disabled-text-color: var(--melon-disabled-text-color);
+  --melon-collapse-disabled-border-color: var(--melon-border-color-lighter);
+  border-top: 1px solid var(--melon-collapse-border-color);
+  border-bottom: 1px solid var(--melon-collapse-border-color);
+}
+
+.melon-collapse-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--melon-collapse-header-height);
+  line-height: var(--melon-collapse-header-height);
+  background-color: var(--melon-collapse-header-bg-color);
+  color: var(--melon-collapse-header-text-color);
+  cursor: pointer;
+  font-size: var(--melon-collapse-header-font-size);
+  font-weight: 500;
+  transition: border-bottom-color var(--er-transition-duration);
+  outline: none;
+  border-bottom: 1px solid var(--melon-collapse-border-color);
+  /* 当前元素同时拥有两个类：&表示当前元素；另一个元素是is-disabled */
+  &.is-disabled {
+    color: var(--melon-collapse-disabled-text-color);
+    cursor: not-allowed;
+    background-image: none;
+  }
+  &.is-active {
+    border-bottom-color: transparent;
+    .header-angle {
+      transform: rotate(90deg);
+    }
+  }
+  .header-angle {
+    transition: transform var(--melon-transition-duration);
+  }
+}
+
+.melon-collapse-item__content {
+  will-change: height;
+  background-color: var(--melon-collapse-content-bg-color);
+  overflow: hidden;
+  box-sizing: border-box;
+  font-size: var(--melon-collapse-content-font-size);
+  color: var(--melon-collapse-content-text-color);
+  border-bottom: 1px solid var(--melon-collapse-border-color);
+  padding-bottom: 25px;
+}
+.slide-enter-active,
+.slide-leave-active {
+  transition: height var(--melon-transition-duration) ease-in-out;
+}
