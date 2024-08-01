@@ -1,0 +1,82 @@
+.melon-tooltip {
+    --melon-popover-bg-color: var(--melon-bg-color-overlay);
+    --melon-popover-font-size: var(--melon-font-size-base);
+    --melon-popover-border-color: var(--melon-border-color-lighter);
+    --melon-popover-padding: 12px;
+    --melon-popover-border-radius: 4px;
+    display: inline-block;
+  }
+  .melon-tooltip {
+    .fade-enter-active,
+    .fade-leave-active {
+      transition: opacity var(--melon-transition-duration);
+    }
+  
+    .fade-enter-from,
+    .fade-leave-to {
+      opacity: 0;
+    }
+  
+    .melon-tooltip__popper {
+      background: var(--melon-popover-bg-color);
+      border-radius: var(--melon-popover-border-radius);
+      border: 1px solid var(--melon-popover-border-color);
+      padding: var(--melon-popover-padding);
+      color: var(--melon-text-color-regular);
+      line-height: 1.4;
+      text-align: justify;
+      font-size: var(--melon-popover-font-size);
+      box-shadow: var(--melon-box-shadow-light);
+      word-break: break-all;
+      box-sizing: border-box;
+      z-index: 1000;
+      #arrow,
+      #arrow::before {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        box-sizing: border-box;
+        background: var(--melon-popover-bg-color);
+      }
+      #arrow {
+        visibility: hidden;
+      }
+      #arrow::before {
+        visibility: visible;
+        content: '';
+        transform: rotate(45deg);
+      }
+      &[data-popper-placement^='top'] > #arrow {
+        bottom: -5px;
+      }
+  
+      &[data-popper-placement^='bottom'] > #arrow {
+        top: -5px;
+      }
+  
+      &[data-popper-placement^='left'] > #arrow {
+        right: -5px;
+      }
+  
+      &[data-popper-placement^='right'] > #arrow {
+        left: -5px;
+      }
+      &[data-popper-placement^='top'] > #arrow::before {
+        border-right: 1px solid var(--melon-popover-border-color);
+        border-bottom: 1px solid var(--melon-popover-border-color);
+      }
+      &[data-popper-placement^='bottom'] > #arrow::before {
+        border-left: 1px solid var(--melon-popover-border-color);
+        border-top: 1px solid var(--melon-popover-border-color);
+      }
+      &[data-popper-placement^='left'] > #arrow::before {
+        border-right: 1px solid var(--melon-popover-border-color);
+        border-top: 1px solid var(--melon-popover-border-color);
+      }
+      &[data-popper-placement^='right'] > #arrow::before {
+        border-left: 1px solid var(--melon-popover-border-color);
+        border-bottom: 1px solid var(--melon-popover-border-color);
+      }
+    }
+  }
+  
