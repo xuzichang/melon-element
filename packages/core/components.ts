@@ -8,7 +8,8 @@ import {
   MelonAlert,
   MelonInput,
   MelonForm,
-  MelonFormItem
+  MelonFormItem,
+  MelonMessage
 } from "@melon-element/components";
 import type { Plugin } from "vue";
 
@@ -22,5 +23,6 @@ export default [
   MelonAlert,
   MelonInput,
   MelonForm,
-  MelonFormItem
+  MelonFormItem,
+  MelonMessage
 ] as Plugin[];

@@ -5,3 +5,4 @@ export * from "./Tooltip";
 export * from "./Alert";
 export * from "./Input";
 export * from "./Form";
+export * from './Message'
