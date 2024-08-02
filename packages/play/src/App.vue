@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, reactive } from "vue";
-import { MelonMessage } from "melon-element";
+import { MelonMessage, MelonNotification } from "melon-element";
 const inputValue = ref("");
 
 // 表单
@@ -37,14 +37,20 @@ async function submit() {
 function handleBtnClick() {
   MelonMessage.info("Button Click");
 }
+function handleNotify() {
+  MelonNotification({
+    title: "Title",
+    message: "Message",
+    type: "success",
+  });
+}
 </script>
 
 <template>
-  按钮：
-  <melon-button @click="handleBtnClick" :use-throttle="false"
-    >Default</melon-button
-  >
-  <melon-button type="primary" size="small">test</melon-button>
+  <melon-alert title="📝按钮" description="点击按钮调用 MelonMessage " />
+  <melon-button @click="handleBtnClick" :use-throttle="false">MelonMessage</melon-button>
+  <melon-alert title="📝按钮" description="点击按钮调用 MelonNotification " />
+  <melon-button type="primary" @click="handleNotify">MelonNotification</melon-button>
 
   <melon-tooltip
     ref="tooltipRef"
@@ -56,7 +62,7 @@ function handleBtnClick() {
     <template #content> 弹出部分 </template>
   </melon-tooltip>
 
-  Alert：
+  <melon-alert title="📝Alert" />
   <melon-alert title="title" type="success" show-icon />
   <melon-alert
     title="title"
@@ -71,13 +77,13 @@ function handleBtnClick() {
     show-icon
   />
   <melon-alert title="title" description="description" type="info" show-icon />
-  输入框：
+  <melon-alert title="📝输入框" />
   <melon-input v-model="inputValue" placeholder="请输入内容">
     <template #suffix> <melon-button>test</melon-button> </template>
     <template #append> test1</template>
   </melon-input>
 
-  表单：
+  <melon-alert title="📝表单" />
   <melon-form
     ref="formRef"
     :model="formData"

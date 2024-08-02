@@ -1,0 +1,95 @@
+.melon-notification {
+    --melon-notification-width: 330px;
+    --melon-notification-padding: 14px 26px 14px 13px;
+    --melon-notification-radius: 8px;
+    --melon-notification-shadow: var(--melon-box-shadow-light);
+    --melon-notification-border-color: var(--melon-border-color-lighter);
+    --melon-notification-icon-size: 24px;
+    --melon-notification-close-font-size: var(--melon-message-close-size, 16px);
+    --melon-notification-content-font-size: var(--melon-font-size-base);
+    --melon-notification-content-color: var(--melon-text-color-regular);
+    --melon-notification-title-font-size: 16px;
+    --melon-notification-title-color: var(--melon-text-color-primary);
+    --melon-notification-close-color: var(--melon-text-color-secondary);
+    --melon-notification-close-hover-color: var(--melon-text-color-regular)
+  }
+  .melon-notification {
+    display: flex;
+    width: var(--melon-notification-width);
+    padding: var(--melon-notification-padding);
+    border-radius: var(--melon-notification-radius);
+    box-sizing: border-box;
+    border: 1px solid var(--melon-notification-border-color);
+    position: fixed;
+    background-color: var(--melon-bg-color-overlay);
+    box-shadow: var(--melon-notification-shadow);
+    transition: opacity var(--melon-transition-duration),transform var(--melon-transition-duration),right var(--melon-transition-duration),top .4s,bottom var(--melon-transition-duration);
+    overflow-wrap: anywhere;
+    overflow: hidden;
+    z-index: 9999;
+  
+    &.right {
+      right: 10px;
+    }
+  
+    &.left {
+      left: 10px;
+    }
+  
+    .melon-notification__text {
+      margin: 0 10px;
+    }
+    .melon-notification__icon {
+      height: var(--melon-notification-icon-size);
+      width: var(--melon-notification-icon-size);
+      font-size: var(--melon-notification-icon-size);
+      color: var(--melon-notification-icon-color);
+    }
+  
+    .melon-notification__title {
+      font-weight: 700;
+      font-size: var(--melon-notification-title-font-size);
+      line-height: var(--melon-notification-icon-size);
+      color: var(--melon-notification-title-color);
+      margin: 0
+    }
+    .melon-notification__content {
+      font-size: var(--melon-notification-content-font-size);
+      line-height: 24px;
+      margin: 6px 0 0;
+      color: var(--melon-notification-content-color);
+      text-align: justify
+    }
+    .melon-notification__close {
+      position: absolute;
+      top: 18px;
+      right: 15px;
+      cursor: pointer;
+      color: var(--melon-notification-close-color);
+      font-size: var(--melon-notification-close-font-size)
+    }
+  }
+  @each $val in info,success,warning,danger { 
+    .melon-notification--$(val) {
+      --melon-notification-icon-color: var(--melon-color-$(val));
+      color: var(--el-notification-icon-color);
+    }
+  }
+  .melon-notification--error {
+    --melon-notification-icon-color: var(--melon-color-danger);
+    color: var(--el-notification-icon-color);
+  }
+  
+  .melon-notification-fade-enter-from {
+    &.right{
+      right: 0;
+      transform: translate(100%);
+    }
+    &.left{
+      left:0;
+      transform: translate(-100%);
+    }
+  }
+  .melon-notification-fade-leave-to {
+    opacity: 0;
+  }
