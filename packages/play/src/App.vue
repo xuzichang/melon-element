@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref ,reactive} from "vue";
+import { ref, reactive } from "vue";
+import { MelonMessage } from "melon-element";
 const inputValue = ref("");
 
 // 表单
@@ -33,10 +34,16 @@ async function submit() {
     console.log("the error", e);
   }
 }
-
+function handleBtnClick() {
+  MelonMessage.info("Button Click");
+}
 </script>
 
 <template>
+  按钮：
+  <melon-button @click="handleBtnClick" :use-throttle="false"
+    >Default</melon-button
+  >
   <melon-button type="primary" size="small">test</melon-button>
 
   <melon-tooltip
@@ -64,7 +71,7 @@ async function submit() {
     show-icon
   />
   <melon-alert title="title" description="description" type="info" show-icon />
-输入框：
+  输入框：
   <melon-input v-model="inputValue" placeholder="请输入内容">
     <template #suffix> <melon-button>test</melon-button> </template>
     <template #append> test1</template>
@@ -106,5 +113,4 @@ async function submit() {
       <melon-button type="primary" native-type="submit">Submit</melon-button>
     </div>
   </melon-form>
-
 </template>

@@ -1,4 +1,4 @@
-import Message from "./Message.vue";
+import Message from "./methods";
 import { withInstallFunction } from "@melon-element/utils";
 
 export const MelonMessage = withInstallFunction(Message, "$message");

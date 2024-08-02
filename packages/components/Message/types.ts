@@ -36,10 +36,10 @@ export type MessageTypeFn = (props: MessageParams) => MessageHandler;
 
 export interface Message extends MessageFn {
   success: MessageTypeFn;
-  warning: MessageFn;
-  info: MessageFn;
-  danger: MessageFn;
-  error: MessageFn;
+  warning: MessageTypeFn;
+  info: MessageTypeFn;
+  danger: MessageTypeFn;
+  error: MessageTypeFn;
 }
 
 export interface MessageInstance {

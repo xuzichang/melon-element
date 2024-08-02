@@ -4,7 +4,7 @@ import { ref, computed, onMounted, watch } from "vue";
 import { bind, delay } from "lodash-es";
 import { useOffset, useEventListener } from "@melon-element/hooks";
 import { getLastBottomOffset } from "./methods";
-import { typeIconMap } from "@melon-element/utils";
+import { typeIconMap, RenderVnode } from "@melon-element/utils";
 import MelonIcon from "../Icon/Icon.vue";
 defineOptions({ name: "ErMessage" });
 const props = withDefaults(defineProps<MessageProps>(), {
