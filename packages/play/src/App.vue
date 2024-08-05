@@ -3,6 +3,8 @@ import { ref, reactive } from "vue";
 import { MelonMessage, MelonNotification } from "melon-element";
 const inputValue = ref("");
 
+const switchValue = ref(true);
+
 // 表单
 const formRef = ref();
 const formData = reactive({
@@ -48,9 +50,21 @@ function handleNotify() {
 
 <template>
   <melon-alert title="📝按钮" description="点击按钮调用 MelonMessage " />
-  <melon-button @click="handleBtnClick" :use-throttle="false">MelonMessage</melon-button>
+  <melon-button @click="handleBtnClick" :use-throttle="false"
+    >MelonMessage</melon-button
+  >
   <melon-alert title="📝按钮" description="点击按钮调用 MelonNotification " />
-  <melon-button type="primary" @click="handleNotify">MelonNotification</melon-button>
+  <melon-button type="primary" @click="handleNotify"
+    >MelonNotification</melon-button
+  >
+  <melon-alert title="📝切换按钮" />
+  <melon-switch
+    v-model="switchValue"
+    size="large"
+    active-text="ON"
+    inactive-text="OFF"
+  />
+  <melon-alert title="📝Tooltip" />
 
   <melon-tooltip
     ref="tooltipRef"
