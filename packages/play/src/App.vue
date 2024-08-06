@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import { ref, reactive } from "vue";
-import { MelonMessage, MelonNotification } from "melon-element";
+import { ref, reactive, h } from "vue";
+import {
+  MelonMessage,
+  MelonNotification,
+  type RenderLabelFunc,
+} from "melon-element";
 const inputValue = ref("");
 
 const switchValue = ref(true);
@@ -46,9 +50,48 @@ function handleNotify() {
     type: "success",
   });
 }
+const selectValue = ref("");
+const selectOptions = ref([
+  {
+    label: "Option A",
+    value: "a",
+  },
+  {
+    label: "Option B",
+    value: "b",
+  },
+  {
+    label: "Option C",
+    value: "c",
+    disabled: true,
+  },
+]);
+const customOptionRender: RenderLabelFunc = (opt) => {
+  return h("div", null, [
+    h("b", { style: { color: "red" } }, opt.label),
+    h("span", null, `~${opt.value}`),
+  ]);
+};
 </script>
 
 <template>
+  <melon-select
+    v-model="selectValue"
+    placeholder="请选择"
+    :render-label="customOptionRender"
+    :options="selectOptions"
+    clearable
+    filterable
+  >
+    <melon-option label="opt 1" value="1" />
+    <melon-option label="opt 2" value="2" />
+    <span>a</span>
+    <melon-option label="opt 3" value="3" disabled />
+    <melon-option label="opt 4" value="4">
+      <span style="color: green">opt 4</span>
+    </melon-option>
+  </melon-select>
+
   <melon-alert title="📝按钮" description="点击按钮调用 MelonMessage " />
   <melon-button @click="handleBtnClick" :use-throttle="false"
     >MelonMessage</melon-button

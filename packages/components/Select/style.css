@@ -1,0 +1,76 @@
+.melon-select {
+    --melon-select-item-hover-bg-color: var(--melon-fill-color-light);
+    --melon-select-item-font-size: var(--melon-font-size-base);
+    --melon-select-item-font-color: var(--melon-text-color-regular);
+    --melon-select-item-selected-font-color: var(--melon-color-primary);
+    --melon-select-item-disabled-font-color: var(--melon-text-color-placeholder);
+    --melon-select-input-focus-border-color: var(--melon-color-primary);
+  }
+  
+  .melon-select{
+   display: inline-block;
+    vertical-align: middle;
+    line-height: 32px;
+    :deep(.melon-tooltip__popper) {
+      padding: 0;
+    }
+  
+    :deep(.melon-input){
+      .header-angle {
+        transition: transform var(--melon-transition-duration);
+        &.is-active {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  
+    .melon-select__nodata, .melon-select__loading {
+      padding: 10px 0;
+      margin: 0;
+      text-align: center;
+      color: var(--melon-text-color-secondary);
+      font-size: var(--melon-select-font-size);
+    }
+    .melon-select__menu {
+      list-style: none;
+      margin: 6px 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .melon-select__menu-item { 
+      margin: 0;
+      font-size: var(--melon-select-item-font-size);
+      padding: 0 32px 0 20px;
+      position: relative;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: var(--melon-select-item-font-color);
+      height: 34px;
+      line-height: 34px;
+      box-sizing: border-box;
+      cursor: pointer;
+      &:hover {
+        background-color: var(--melon-select-item-hover-bg-color);
+      }
+      &.is-selected {
+        color: var(--melon-select-item-selected-font-color);
+        font-weight: 700;    
+      }
+      &.is-highlighted {
+        background-color: var(--melon-select-item-hover-bg-color);
+      }
+      &.is-disabled {
+        color: var(--melon-select-item-disabled-font-color);
+        cursor: not-allowed;
+        &:hover {
+          background-color: transparent;
+        }
+      }
+  
+    }
+  
+    :deep(.melon-input__inner) {
+      cursor: pointer;
+    }
+  }

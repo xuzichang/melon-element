@@ -8,3 +8,4 @@ export * from "./Form";
 export * from './Message'
 export * from './Notification'
 export * from './Switch'
+export * from './Select'
