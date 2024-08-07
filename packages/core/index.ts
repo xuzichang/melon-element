@@ -10,5 +10,6 @@ printLogo()
 library.add(fas)
 const installer = makeInstaller(componets)
 
+export * from '@melon-element/locale'
 export * from '@melon-element/components'
 export default installer

@@ -10,9 +10,8 @@
     "docs:build": "pnpm --filter @melon-element/docs build",
     "test": "pnpm --filter @melon-element/components test",
     "build": "run-s build-hooks build-components",
-    "build-hooks":"cross-env NODE_ENV=production pnpm --filter @melon-elemet/hooks build",
-    "build-components":"cross-env NODE_ENV=production pnpm --filter melon-element build"
-
+    "build-hooks": "cross-env NODE_ENV=production pnpm --filter @melon-elemet/hooks build",
+    "build-components": "cross-env NODE_ENV=production pnpm --filter melon-element build"
   },
   "keywords": [],
   "author": "",
@@ -43,13 +42,15 @@
     "@vue/test-utils": "^2.4.5",
     "jsdom": "^24.0.0",
     "shelljs": "^0.8.5",
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "vue3-i18n": "^1.1.5"
   },
   "dependencies": {
     "@melon-element/components": "workspace:*",
     "@melon-element/hooks": "workspace:*",
     "@melon-element/theme": "workspace:*",
     "@melon-element/utils": "workspace:*",
+    "@melon-element/locale": "workspace:*",
     "lodash-es": "^4.17.21",
     "melon-element": "workspace:*",
     "vue": "^3.4.19",

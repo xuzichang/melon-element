@@ -91,7 +91,9 @@ const customOptionRender: RenderLabelFunc = (opt) => {
       <span style="color: green">opt 4</span>
     </melon-option>
   </melon-select>
-
+  <melon-popconfirm title="Are you sure to delete this?">
+    <melon-button type="danger">Danger</melon-button>
+  </melon-popconfirm>
   <melon-alert title="📝按钮" description="点击按钮调用 MelonMessage " />
   <melon-button @click="handleBtnClick" :use-throttle="false"
     >MelonMessage</melon-button
