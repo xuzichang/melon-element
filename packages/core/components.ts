@@ -15,7 +15,8 @@ import {
   MelonSelect,
   MelonOption,
   MelonPopconfirm,
-  MelonUpload
+  MelonUpload,
+  MelonLoading
 } from "@melon-element/components";
 import type { Plugin } from "vue";
 
@@ -36,5 +37,6 @@ export default [
   MelonSelect,
   MelonOption,
   MelonPopconfirm,
-  MelonUpload
+  MelonUpload,
+  MelonLoading
 ] as Plugin[];

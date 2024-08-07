@@ -1,0 +1,53 @@
+.melon-loading {
+    --melon-loading-icon-color: var(--melon-color-primary);
+    --melon-loading-mask-margin: 0;
+    --melon-loading-mask-size: 100%;
+    --melon-loading-icon-size: 42px;
+    --melon-loading-font-size: 14px;
+    --melon-loading-z-index: 20000;
+  }
+  .melon-loading {
+    opacity: 1;
+    transition: opacity var(--melon-transition-duration);
+    &.melon-loading__mask {
+      position: absolute;
+      margin: var(--melon-loading-mask-margin);
+      top: var(--melon-loading-mask-margin);
+      right: var(--melon-loading-mask-margin);
+      bottom: var(--melon-loading-mask-margin);
+      left: var(--melon-loading-mask-margin);
+      height: var(--melon-loading-mask-size);
+      width: var(--melon-loading-mask-size);
+      z-index: var(--melon-loading-z-index);
+      background: var(--melon-loading-bg-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &.is-fullscreen {
+        position: fixed;
+      }
+    }
+    .melon-loading__spinner {
+      color: var(--melon-loading-icon-color);
+      text-align: center;
+      .melon-loading-text {
+        margin: 3px 0;
+        font-size: var(--melon-loading-font-size);
+      }
+      i {
+        font-size: var(--melon-loading-icon-size);
+      }
+    }
+  }
+  .fade-in-linear-enter-from,
+  .fade-in-linear-leave-to {
+      opacity: 0;
+  }
+  
+  .melon-loading-parent--relative {
+    position: relative !important;
+  }
+  .melon-loading-parent--hiden {
+    overflow: hidden !important;
+  }
+  
