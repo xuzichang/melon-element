@@ -75,6 +75,35 @@ const customOptionRender: RenderLabelFunc = (opt) => {
 </script>
 
 <template>
+  <melon-upload
+    action="https://jsonplaceholder.typicode.com/posts/"
+    :default-file-list="[
+      {
+        uid: '123',
+        size: 123,
+        name: 'test.png',
+        status: 'uploading',
+        percent: 20,
+      },
+      {
+        uid: '124',
+        size: 123,
+        name: 'test1.png',
+        status: 'success',
+        percent: 100,
+      },
+      {
+        uid: '125',
+        size: 123,
+        name: 'test4.png',
+        status: 'error',
+        percent: 34,
+      },
+    ]"
+  >
+    <melon-button type="success" round icon="upload"> 上传文件 </melon-button>
+  </melon-upload>
+
   <melon-select
     v-model="selectValue"
     placeholder="请选择"

@@ -6,6 +6,9 @@
   "scripts": {
     "test": "vitest --coverage"
   },
+  "devDependencies": {
+    "axios": "^1.6.8"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC"
