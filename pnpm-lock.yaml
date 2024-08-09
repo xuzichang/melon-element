@@ -11,6 +11,9 @@ importers:
       '@melon-element/components':
         specifier: workspace:*
         version: link:packages/components
+      '@melon-element/constants':
+        specifier: workspace:*
+        version: link:packages/constants
       '@melon-element/hooks':
         specifier: workspace:*
         version: link:packages/hooks
@@ -126,6 +129,8 @@ importers:
       axios:
         specifier: ^1.6.8
         version: 1.7.3
+
+  packages/constants: {}
 
   packages/core:
     dependencies:

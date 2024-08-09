@@ -51,6 +51,7 @@
     "@melon-element/theme": "workspace:*",
     "@melon-element/utils": "workspace:*",
     "@melon-element/locale": "workspace:*",
+    "@melon-element/constants": "workspace:*",
     "lodash-es": "^4.17.21",
     "melon-element": "workspace:*",
     "vue": "^3.4.19",

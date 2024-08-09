@@ -1,4 +1,4 @@
-import {makeInstaller} from '@melon-element/utils'
+import makeInstaller from './makeInstaller'
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {fas} from '@fortawesome/free-solid-svg-icons'
 import componets from './components'
