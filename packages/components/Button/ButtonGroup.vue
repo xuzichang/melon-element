@@ -7,9 +7,10 @@ defineOptions({
     name:'MelonButtonGroup'
 })
 const props = defineProps<ButtonGroupProps>()
-
+// provide在组件树中提供响应式数据
 provide(
     BUTTON_GROUP_CTX_KEY,
+    // reactive创建一个响应式对象，toRef将props中的属性转换为响应式引用
     reactive({
         size:toRef(props,'size'),
         type:toRef(props,'type'),

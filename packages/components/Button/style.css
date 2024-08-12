@@ -1,199 +1,245 @@
+/* 
+  --变量：自定义变量
+*/
+
 .melon-button-group {
-    --melon-button-group-border-color: var(--melon-border-color-lighter);
+  /* 边框颜色 */
+  --melon-button-group-border-color: var(--melon-border-color-lighter);
+}
+.melon-button {
+  /* 字体权重 */
+  --melon-button-font-weight: var(--melon-font-weight-primary);
+  /* 边框颜色 */
+  --melon-button-border-color: var(--melon-border-color);
+  /* 背景颜色 */
+  --melon-button-bg-color: var(--melon-fill-color-blank);
+  /* 文字颜色 */
+  --melon-button-text-color: var(--melon-text-color-regular);
+  /* 禁用状态下文字颜色 */
+  --melon-button-disabled-text-color: var(--melon-disabled-text-color);
+  /* 禁用状态下背景颜色 */
+  --melon-button-disabled-bg-color: var(--melon-fill-color-blank);
+  /* 禁用状态下边框颜色 */
+  --melon-button-disabled-border-color: var(--melon-border-color-light);
+  /* 悬浮状态下文字颜色 */
+  --melon-button-hover-text-color: var(--melon-color-primary);
+  /* 悬浮状态下背景颜色 */
+  --melon-button-hover-bg-color: var(--melon-color-primary-light-9);
+  /* 悬浮状态下边框颜色 */
+  --melon-button-hover-border-color: var(--melon-color-primary-light-7);
+  /* 激活状态下文字颜色 */
+  --melon-button-active-text-color: var(--melon-button-hover-text-color);
+  /* 激活状态下边框颜色 */
+  --melon-button-active-border-color: var(--melon-color-primary);
+  /* 激活状态下背景颜色 */
+  --melon-button-active-bg-color: var(--melon-button-hover-bg-color);
+  /* 轮廓颜色 */
+  --melon-button-outline-color: var(--melon-color-primary-light-5);
+  /* 激活颜色 */
+  --melon-button-active-color: var(--melon-text-color-primary);
+}
+
+.melon-button {
+  /* 行内弹性盒子 */
+  display: inline-flex;
+  /* 水平居中 */
+  justify-content: center;
+  /* 垂直居中 */
+  align-items: center;
+  /* 行高：1相当于line-height:100%,会根据该元素本身的字体大小设置行高,比如字体大小是15px,行高就是15px */
+  line-height: 1;
+  /* 高度 */
+  height: 32px;
+  /* 文本换行方式：不换行 */
+  white-space: nowrap;
+  /* 光标样式 */
+  cursor: pointer;
+  /* 文本颜色 */
+  color: var(--melon-button-text-color);
+  /* 文本对齐方式 */
+  text-align: center;
+  /* 盒模型：将border和padding数值包含在width和height之内,修改border和padding数值盒子的大小不变。 */
+  box-sizing: border-box;
+  /* 轮廓线 */
+  outline: none;
+  /* 过渡效果 */
+  transition: 0.1s;
+  /* 字体权重 */
+  font-weight: var(--melon-button-font-weight);
+  /* 是否用户选中文本 */
+  user-select: none;
+  /* 垂直对齐方式 */
+  vertical-align: middle;
+  /* 外观：none去除浏览器默认外观样式 */
+  -webkit-appearance: none;
+  /* 背景颜色 */
+  background-color: var(--melon-button-bg-color);
+  /* 边框 */
+  border: var(--melon-border);
+  /* 边框颜色 */
+  border-color: var(--melon-button-border-color);
+  /* 内边距 */
+  padding: 8px 15px;
+  /* 字体大小 */
+  font-size: var(--melon-font-size-base);
+  /* 边框圆角 */
+  border-radius: var(--melon-border-radius-base);
+  & + & {
+    margin-left: 12px;
   }
-  .melon-button{
-    --melon-button-font-weight: var(--melon-font-weight-primary);
-    --melon-button-border-color: var(--melon-border-color);
-    --melon-button-bg-color: var(--melon-fill-color-blank);
-    --melon-button-text-color: var(--melon-text-color-regular);
-    --melon-button-disabled-text-color: var(--melon-disabled-text-color);
-    --melon-button-disabled-bg-color: var(--melon-fill-color-blank);
-    --melon-button-disabled-border-color: var(--melon-border-color-light);
-    --melon-button-hover-text-color: var(--melon-color-primary);
-    --melon-button-hover-bg-color: var(--melon-color-primary-light-9);
-    --melon-button-hover-border-color: var(--melon-color-primary-light-7);
-    --melon-button-active-text-color: var(--melon-button-hover-text-color);
-    --melon-button-active-border-color: var(--melon-color-primary);
-    --melon-button-active-bg-color: var(--melon-button-hover-bg-color);
-    --melon-button-outline-color: var(--melon-color-primary-light-5);
-    --melon-button-active-color: var(--melon-text-color-primary);
-  }
-  
-  .melon-button{
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    line-height: 1;
-    height: 32px;
-    white-space: nowrap;
-    cursor: pointer;
-    color: var(--melon-button-text-color);
-    text-align: center;
-    box-sizing: border-box;
+  &:hover,
+  &:focus {
+    color: var(--melon-button-hover-text-color);
+    border-color: var(--melon-button-hover-border-color);
+    background-color: var(--melon-button-hover-bg-color);
     outline: none;
-    transition: 0.1s;
-    font-weight: var(--melon-button-font-weight);
-    user-select: none;
-    vertical-align: middle;
-    -webkit-appearance: none;
-    background-color: var(--melon-button-bg-color);
-    border: var(--melon-border);
-    border-color: var(--melon-button-border-color);
-    padding: 8px 15px;
-    font-size: var(--melon-font-size-base);
-    border-radius: var(--melon-border-radius-base);
-    & + & {
-      margin-left: 12px;
-    }
-    &:hover,
-    &:focus {
-      color: var(--melon-button-hover-text-color);
-      border-color: var(--melon-button-hover-border-color);
-      background-color: var(--melon-button-hover-bg-color);
-      outline: none;
-    }
-    &:active {
-      color: var(--melon-button-active-text-color);
-      border-color: var(--melon-button-active-border-color);
-      background-color: var(--melon-button-active-bg-color);
-      outline: none;
-    }
-    /*plain*/
-    &.is-plain {
-      --melon-button-hover-text-color: var(--melon-color-primary);
-      --melon-button-hover-bg-color: var(--melon-fill-color-blank);
-      --melon-button-hover-border-color: var(--melon-color-primary);
-    }
-    /*round*/
-    &.is-round {
-      border-radius: var(--melon-border-radius-round);
-    }
-    /*circle*/
-    &.is-circle {
-      border-radius: 50%;
-      padding: 8px;
-    }
-    /*disabled*/
-    &.is-loading,
-    &.is-disabled,
-    &.is-disabled:hover,
-    &.is-disabled:focus,
-    &[disabled],
-    &[disabled]:hover,
-    &[disabled]:focus {
-      color: var(--melon-button-disabled-text-color);
-      cursor: not-allowed;
-      background-image: none;
-      background-color: var(--melon-button-disabled-bg-color);
-      border-color: var(--melon-button-disabled-border-color);
-    }
-    [class*='er-icon'] {
-      width: 1em;
-      height: 1em;
-    }
   }
-  @each $val in primary, success, warning, info, danger {
-    .melon-button--$(val) {
-      --melon-button-text-color: var(--melon-color-white);
-      --melon-button-bg-color: var(--melon-color-$(val));
-      --melon-button-border-color: var(--melon-color-$(val));
-      --melon-button-outline-color: var(--melon-color-$(val)-light-5);
-      --melon-button-active-color: var(--melon-color-$(val)-dark-2);
-      --melon-button-hover-text-color: var(--melon-color-white);
-      --melon-button-hover-bg-color: var(--melon-color-$(val)-light-3);
-      --melon-button-hover-border-color: var(--melon-color-$(val)-light-3);
-      --melon-button-active-bg-color: var(--melon-color-$(val)-dark-2);
-      --melon-button-active-border-color: var(--melon-color-$(val)-dark-2);
-      --melon-button-disabled-text-color: var(--melon-color-white);
-      --melon-button-disabled-bg-color: var(--melon-color-$(val)-light-5);
-      --melon-button-disabled-border-color: var(--melon-color-$(val)-light-5);
-    }
-    .melon-button--$(val).is-plain {
-      --melon-button-text-color: var(--melon-color-$(val));
-      --melon-button-bg-color: var(--melon-color-$(val)-light-9);
-      --melon-button-border-color: var(--melon-color-$(val)-light-5);
-      --melon-button-hover-text-color: var(--melon-color-white);
-      --melon-button-hover-bg-color: var(--melon-color-$(val));
-      --melon-button-hover-border-color: var(--melon-color-$(val));
-      --melon-button-active-text-color: var(--melon-color-white);
-  
-      --melon-button-disabled-text-color: var(--melon-color-$(val)-light-5);
-      --melon-button-disabled-bg-color: var(--melon-color-$(val)-light-9);
-      --melon-button-disabled-border-color: var(--melon-color-$(val)-light-8);
-    }
+  &:active {
+    color: var(--melon-button-active-text-color);
+    border-color: var(--melon-button-active-border-color);
+    background-color: var(--melon-button-active-bg-color);
+    outline: none;
   }
-  .melon-button--large {
-    --melon-button-size: 40px;
-    height: var(--melon-button-size);
-    padding: 12px 19px;
-    font-size: var(--melon-font-size-base);
-    border-radius: var(--melon-border-radius-base);
-    /*circle*/
-    &.is-circle {
-      border-radius: 50%;
-      padding: 12px;
-    }
+  /* 
+    &. ：连接父元素和子元素的类名 
+    编译出来是同一个元素，有两个类名，两个类名之间没有空格
+  */
+  &.is-plain {
+    --melon-button-hover-text-color: var(--melon-color-primary);
+    --melon-button-hover-bg-color: var(--melon-fill-color-blank);
+    --melon-button-hover-border-color: var(--melon-color-primary);
   }
-  .melon-button--small {
-    --melon-button-size: 24px;
-    height: var(--melon-button-size);
-    padding: 5px 11px;
-    font-size: 12px;
-    border-radius: calc(var(--melon-border-radius-base) - 1px);
-    /*circle*/
-    &.is-circle {
-      border-radius: 50%;
-      padding: 5px;
-    }
-    [class*='er-icon'] {
-      width: 12px;
-      height: 12px;
-    }
+  &.is-round {
+    border-radius: var(--melon-border-radius-round);
   }
-  
-  .melon-button-group {
-    display: inline-block;
-    vertical-align: middle;
-  
-    &::after {
-      clear: both;
+  &.is-circle {
+    border-radius: 50%;
+    padding: 8px;
+  }
+  &.is-loading,
+  &.is-disabled,
+  &.is-disabled:hover,
+  &.is-disabled:focus,
+  /* 
+    &[attribute=value]  ：表示选择具有特定属性和属性值的元素
+  */
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus {
+    color: var(--melon-button-disabled-text-color);
+    cursor: not-allowed;
+    background-image: none;
+    background-color: var(--melon-button-disabled-bg-color);
+    border-color: var(--melon-button-disabled-border-color);
+  }
+  /* class名字中包含 melon-icon 的 */
+  [class*="melon-icon"] {
+    width: 1em;
+    height: 1em;
+  }
+}
+/* 颜色主题 */
+@each $val in primary, success, warning, info, danger {
+  .melon-button--$(val) {
+    --melon-button-text-color: var(--melon-color-white);
+    --melon-button-bg-color: var(--melon-color-$(val));
+    --melon-button-border-color: var(--melon-color-$(val));
+    --melon-button-outline-color: var(--melon-color-$(val)-light-5);
+    --melon-button-active-color: var(--melon-color-$(val)-dark-2);
+    --melon-button-hover-text-color: var(--melon-color-white);
+    --melon-button-hover-bg-color: var(--melon-color-$(val)-light-3);
+    --melon-button-hover-border-color: var(--melon-color-$(val)-light-3);
+    --melon-button-active-bg-color: var(--melon-color-$(val)-dark-2);
+    --melon-button-active-border-color: var(--melon-color-$(val)-dark-2);
+    --melon-button-disabled-text-color: var(--melon-color-white);
+    --melon-button-disabled-bg-color: var(--melon-color-$(val)-light-5);
+    --melon-button-disabled-border-color: var(--melon-color-$(val)-light-5);
+  }
+  .melon-button--$(val).is-plain {
+    --melon-button-text-color: var(--melon-color-$(val));
+    --melon-button-bg-color: var(--melon-color-$(val)-light-9);
+    --melon-button-border-color: var(--melon-color-$(val)-light-5);
+    --melon-button-hover-text-color: var(--melon-color-white);
+    --melon-button-hover-bg-color: var(--melon-color-$(val));
+    --melon-button-hover-border-color: var(--melon-color-$(val));
+    --melon-button-active-text-color: var(--melon-color-white);
+    --melon-button-disabled-text-color: var(--melon-color-$(val)-light-5);
+    --melon-button-disabled-bg-color: var(--melon-color-$(val)-light-9);
+    --melon-button-disabled-border-color: var(--melon-color-$(val)-light-8);
+  }
+}
+.melon-button--large {
+  --melon-button-size: 40px;
+  height: var(--melon-button-size);
+  padding: 12px 19px;
+  font-size: var(--melon-font-size-base);
+  border-radius: var(--melon-border-radius-base);
+  &.is-circle {
+    border-radius: 50%;
+    padding: 12px;
+  }
+}
+.melon-button--small {
+  --melon-button-size: 24px;
+  height: var(--melon-button-size);
+  padding: 5px 11px;
+  font-size: 12px;
+  border-radius: calc(var(--melon-border-radius-base) - 1px);
+  &.is-circle {
+    border-radius: 50%;
+    padding: 5px;
+  }
+  [class*="melon-icon"] {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.melon-button-group {
+  display: inline-block;
+  vertical-align: middle;
+
+  /* &::after：在当前元素后面插入为元素，清除浮动 */
+  &::after {
+    clear: both;
+  }
+  /* 穿透组件的样式隔离:deep */
+  & > :deep(.melon-button) {
+    float: left;
+    position: relative;
+    margin-left: 0;
+    &:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right-color: var(--melon-button-group-border-color);
     }
-    & > :deep(.melon-button){
-      float: left;
-      position: relative;
-      margin-left: 0;
-      &:first-child{
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        border-right-color: var(--melon-button-group-border-color);
+    &:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-left-color: var(--melon-button-group-border-color);
+    }
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+
+      border-left-color: var(--melon-button-group-border-color);
+      border-right-color: var(--melon-button-group-border-color);
+    }
+    &:not(:last-child) {
+      margin-right: -1px;
+    }
+    &:first-child:last-child {
+      border-top-right-radius: var(--melon-border-radius-base);
+      border-bottom-right-radius: var(--melon-border-radius-base);
+      border-top-left-radius: var(--melon-border-radius-base);
+      border-bottom-left-radius: var(--melon-border-radius-base);
+
+      &.is-round {
+        border-radius: var(--melon-border-radius-round);
       }
-      &:last-child{
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0; 
-        border-left-color: var(--melon-button-group-border-color);
-      }
-      &:not(:first-child):not(:last-child) {
-        border-radius: 0;
-  
-        border-left-color: var(--melon-button-group-border-color);
-        border-right-color: var(--melon-button-group-border-color);
-      }
-      &:not(:last-child) {
-        margin-right: -1px;
-      }
-      &:first-child:last-child {
-        border-top-right-radius: var(--melon-border-radius-base);
-        border-bottom-right-radius: var(--melon-border-radius-base);
-        border-top-left-radius: var(--melon-border-radius-base);
-        border-bottom-left-radius: var(--melon-border-radius-base);
-  
-        &.is-round {
-          border-radius: var(--melon-border-radius-round);
-        }
-  
-        &.is-circle {
-          border-radius: 50%;
-        }
+
+      &.is-circle {
+        border-radius: 50%;
       }
     }
   }
+}
