@@ -26,19 +26,19 @@ const customStyles = computed(() => ({
 </template>
 <style scoped>
 .melon-icon {
-  --er-icon-color: inherit;
+  --melon-icon-color: inherit;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   position: relative;
   fill: currentColor;
-  color: var(--er-icon-color);
+  color: var(--melon-icon-color);
   font-size: inherit;
 }
 
 @each $val in primary, info, success, warning, danger {
   .melon-icon--$(val) {
-    --er-icon-color: var(--er-color-$(val));
+    --melon-icon-color: var(--melon-color-$(val));
   }
 }
 </style>
