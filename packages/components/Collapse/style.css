@@ -1,13 +1,23 @@
 .melon-collapse {
+  /* 边框颜色 */
   --melon-collapse-border-color: var(--melon-border-color-light);
+  /* 标题高度 */
   --melon-collapse-header-height: 48px;
+  /* 标题背景颜色 */
   --melon-collapse-header-bg-color: var(--melon-fill-color-blank);
+  /* 标题文字颜色 */
   --melon-collapse-header-text-color: var(--melon-text-color-primary);
+  /* 标题字体大小 */
   --melon-collapse-header-font-size: 13px;
+  /* 内容背景颜色 */
   --melon-collapse-content-bg-color: var(--melon-fill-color-blank);
+  /* 内容字体大小 */
   --melon-collapse-content-font-size: 13px;
+  /* 内容字体颜色 */
   --melon-collapse-content-text-color: var(--melon-text-color-primary);
+  /* 禁用状态字体颜色 */
   --melon-collapse-disabled-text-color: var(--melon-disabled-text-color);
+  /* 禁用状态边框颜色 */
   --melon-collapse-disabled-border-color: var(--melon-border-color-lighter);
   border-top: 1px solid var(--melon-collapse-border-color);
   border-bottom: 1px solid var(--melon-collapse-border-color);
@@ -15,7 +25,9 @@
 
 .melon-collapse-item__header {
   display: flex;
+  /* 垂直居中 */
   align-items: center;
+  /* 水平分布 */
   justify-content: space-between;
   height: var(--melon-collapse-header-height);
   line-height: var(--melon-collapse-header-height);
@@ -24,27 +36,32 @@
   cursor: pointer;
   font-size: var(--melon-collapse-header-font-size);
   font-weight: 500;
+  /* 边框颜色过渡 */
   transition: border-bottom-color var(--er-transition-duration);
+  /* 移除点击时的轮廓 */
   outline: none;
   border-bottom: 1px solid var(--melon-collapse-border-color);
-  /* 当前元素同时拥有两个类：&表示当前元素；另一个元素是is-disabled */
+  /* 禁用状态：文字颜色、光标样式、背景图像 */
   &.is-disabled {
     color: var(--melon-collapse-disabled-text-color);
     cursor: not-allowed;
     background-image: none;
   }
+  /* 激活状态：边框颜色、旋转角度 */
   &.is-active {
     border-bottom-color: transparent;
     .header-angle {
       transform: rotate(90deg);
     }
   }
+  /* 标题中箭头图标过渡效果 */
   .header-angle {
     transition: transform var(--melon-transition-duration);
   }
 }
 
 .melon-collapse-item__content {
+  /* 优化性能：告诉浏览器这个元素的高度会变化 */
   will-change: height;
   background-color: var(--melon-collapse-content-bg-color);
   overflow: hidden;
@@ -54,6 +71,7 @@
   border-bottom: 1px solid var(--melon-collapse-border-color);
   padding-bottom: 25px;
 }
+/* 折叠面板展开和收起过渡效果 */
 .slide-enter-active,
 .slide-leave-active {
   transition: height var(--melon-transition-duration) ease-in-out;

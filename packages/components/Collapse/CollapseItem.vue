@@ -4,16 +4,17 @@ import { inject, computed } from "vue";
 import { COLLAPSE_CTX_KEY } from "./constants";
 import transitionEvents from "./transitionEvents";
 import MelonIcon from "../Icon/Icon.vue";
-
+// 组件选项
 defineOptions({
   name: "MelonCollapseItem",
 });
-
+// 组件属性
 const props = defineProps<CollapseItemProps>();
+// 通过inject获取父组件传递的上下文
 const ctx = inject(COLLAPSE_CTX_KEY);
-
+// 计算属性：判断当前项是否处于激活状态，即是否在activeNames数组中
 const isActive = computed(() => ctx?.activeNames.value?.includes(props.name));
-
+// 点击事件：如果禁用直接返回；否则调用父组件传递的handleItemClick方法
 function handleClick() {
   if (props.disabled) return;
   ctx?.handleItemClick(props.name);

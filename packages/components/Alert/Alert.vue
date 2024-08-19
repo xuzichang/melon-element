@@ -12,9 +12,13 @@ const props = withDefaults(defineProps<AlertProps>(), {
   closable: true,
 });
 const visible = ref(true);
+// 获取插槽内容
 const slots = useSlots();
+// 定义组件可以发出的事件
 const emits = defineEmits<AlertEmits>()
+// 计算属性：是否显示描述信息
 const withDescription = computed(() => props.description || slots.default);
+// 计算属性：根据警告类型获取相应图标名称
 const iconName = computed(() => typeIconMap.get(props.type) ?? "circle-info");
 function close() {
   visible.value = false
@@ -24,6 +28,7 @@ function open() {
   visible.value = true
   emits('close')
 }
+// 暴露open、close方法供父组件调用
 defineExpose<AlertInstance>({
   open, close
 })

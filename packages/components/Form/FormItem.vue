@@ -46,7 +46,9 @@ const props = withDefaults(defineProps<FormItemProps>(), {
   showMessage: true,
   required: void 0,
 });
+// inject获取表单上下文
 const ctx = inject(FORM_CTX_KEY);
+// useSlots获取插槽
 const slots = useSlots();
 const validateStatus: Ref<ValidateStatus> = ref("init");
 const isRequired = computed(
@@ -62,10 +64,12 @@ const hasLabel = computed(() => !!(props.label || slots.label));
 const labelFor = computed(
   () => props.for || (inputIds.value.length ? inputIds.value[0] : "")
 );
+// 生成唯一的标签Id
 const labelId = useId().value;
 const currentLabel = computed(
   () => `${props.label ?? ""}${ctx?.labelSuffix ?? ""}`
 );
+// 计算标签宽度
 const normalizeLabelWidth = computed(() => {
   const _normalizeStyle = (val: number | string) => {
     if (isNumber(val)) return `${val}px`;
@@ -75,20 +79,27 @@ const normalizeLabelWidth = computed(() => {
   if (ctx?.labelWidth) return _normalizeStyle(ctx.labelWidth);
   return "150px";
 });
-
+// 获取对象属性值：接受参数target，类型是对象或void（null或undefined）
+// get：根据 对象路径 获取值
 const getValByProp = (target: Record<string, any> | void) => {
+  // target、props.prop是否存在，不是null或undefined
+  // get(target,props.prop)结果不是null或undefined
   if (target && props.prop && !isNil(get(target, props.prop))) {
     return get(target, props.prop);
   }
+  // 任一条件不满足返回null
   return null;
 };
-
+// 根据props和context（required、rules）动态生成表单验证规则
 const itemRules = computed(() => {
   const { required } = props;
+  // 1.初始化规则数组：存储最终验证规则
   const rules: FormItemRule[] = [];
+  // 2.判断props.rules是否存在，存在则push到rules数组
   if (props.rules) {
     rules.push(...props.rules);
   }
+  // 3.处理上下文中的rules：如果上下文存在rules且组件props.prop存在，通过getValByProp获取与prop对应的规则，并添加到rules
   const formRules = ctx?.rules;
   if (formRules && props.prop) {
     const _rules = getValByProp(formRules);
@@ -96,11 +107,14 @@ const itemRules = computed(() => {
       rules.push(..._rules);
     }
   }
+  // 4.处理required
   if (!isNil(required)) {
+    // 筛选rules数组中是否已经存在required规则
     const requiredRules = filter(
       map(rules, (rule, i) => [rule, i]),
       (item: [FormItemRule, number]) => includes(keys(item[0]), "required")
     );
+    // a.如果存在，遍历。如果规则的required与传入的required属性不同，更新
     if (size(requiredRules)) {
       for (const item of requiredRules) {
         const [rule, i] = item as [FormItemRule, number];
@@ -108,6 +122,7 @@ const itemRules = computed(() => {
         rules[i] = { ...rule, required };
       }
     } else {
+      // b.如果不存在，添加
       rules.push({ required });
     }
   }

@@ -19,10 +19,12 @@
     border-radius: var(--melon-alert-border-radius-base);
     position: relative;
     background-color: var(--melon-alert-bg-color);
+    /* 隐藏溢出内容 */
     overflow: hidden;
     opacity: 1;
     display: flex;
     align-items: center;
+    /* 透明度过渡 */
     transition: opacity var(--melon-transition-duration);
     margin-top: var(--melon-alert-top-margin);
     .melon-alert__icon {
@@ -58,6 +60,7 @@
         top: 12px;
         right: 15px;
         cursor: pointer;
+        /* 穿透组件样式隔离 */
         :deep(.melon-icon) {
           vertical-align: top;
         }
@@ -88,6 +91,7 @@
     opacity: 0;
   }
   
+  /* 通过@each循环和模板字符串，为不同类型的警告框定义不同的文本颜色和背景颜色。 */
   @each $val in success,warning,info,danger { 
     .melon-alert__$(val).melon-alert__light {
       --melon-alert-text-color: var(--melon-color-$(val));
