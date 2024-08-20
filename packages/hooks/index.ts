@@ -6,6 +6,7 @@ import useId from './useId'
 import useZIndex from "./useZIndex";
 import useOffset from "./useOffset";
 import useLocale from "./useLocale";
+import useDisabledStyle from "./useDisabledStyle";
 export {
     useClickOutside,
     useEventListener,
@@ -14,5 +15,6 @@ export {
     useId,
     useZIndex,
     useOffset,
-    useLocale
+    useLocale,
+    useDisabledStyle
 }

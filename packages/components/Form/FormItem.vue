@@ -90,6 +90,7 @@ const getValByProp = (target: Record<string, any> | void) => {
   // 任一条件不满足返回null
   return null;
 };
+
 // 根据props和context（required、rules）动态生成表单验证规则
 const itemRules = computed(() => {
   const { required } = props;

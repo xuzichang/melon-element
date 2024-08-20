@@ -8,7 +8,7 @@
     "story": "pnpm --filter @melon-element/play storybook",
     "docs:dev": "pnpm --filter @melon-element/docs dev",
     "docs:build": "pnpm --filter @melon-element/docs build",
-    "test": "pnpm --filter @melon-element/components test",
+    "test": "cross-env NODE_ENV=test pnpm --filter @melon-element/components test",
     "build": "run-s build-hooks build-components",
     "build-hooks": "cross-env NODE_ENV=production pnpm --filter @melon-elemet/hooks build",
     "build-components": "cross-env NODE_ENV=production pnpm --filter melon-element build"
